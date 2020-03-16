@@ -18,7 +18,9 @@ def message_handler(bot, update):
     print(message)
     if "pflumewäldli" in message:
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein schöner Ort!")
-    
+    if "giizig" in message:
+        bot.send_message(chat_id=update.message.chat_id, text="und wie!")
+
 
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
