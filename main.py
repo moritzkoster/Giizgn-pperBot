@@ -20,7 +20,8 @@ def message_handler(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein schöner Ort!")
     if "giizig" in message:
         bot.send_message(chat_id=update.message.chat_id, text="und wie!")
-
+    if "livigno" in message:
+        bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
 
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
