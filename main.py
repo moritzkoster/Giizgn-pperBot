@@ -1,5 +1,6 @@
 import json
 import random
+import secrets
 
 from telegram.ext import Updater, MessageHandler, Filters
 
@@ -14,6 +15,8 @@ def message_handler(bot, update):
     messageStr = update.message.text.lower().translate({ord(i): None for i in '.:;,?'})
     if messageStr == "wie isst me nutella":
         bot.send_message(chat_id=update.message.chat_id, text="Selbstverständlich ohni Butter, nur Scheusale, Barbare und anderi Ranzlinge essed Nutella mit Butter!!!")
+    if messageStr == "wie goot d welt under":
+        bot.send_message(chat_id=update.message.chat_id, text="Der uralte Vulkan Kronos reisst beim grossen Glockenschlag auf, und wenn der Ring da nicht pünktlich in die brodelnde Glut geworfen wird, dann wird die ganze Welt mit Fondue überbacken")
     message = update.message.text.lower().split()
     print(message)
     if "pflumewäldli" in message:
@@ -22,6 +25,9 @@ def message_handler(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="und wie!")
     if "livigno" in message:
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
+    if "gester" in message:
+        bot.send_message(chat_id=update.message.chat_id, text="gester?! Da schaffed mer nie!!")
+    else: bot.send_message(chat_id=update.message.chat_id, text="I ha di ned verstande du Stinkdachs")
 
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
