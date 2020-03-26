@@ -19,16 +19,22 @@ def message_handler(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Der uralte Vulkan Kronos reisst beim grossen Glockenschlag auf, und wenn der Ring da nicht pünktlich in die brodelnde Glut geworfen wird, dann wird die ganze Welt mit Fondue überbacken")
     message = update.message.text.lower().split()
     print(message)
+    didSend = False
     if "pflumewäldli" in message:
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein schöner Ort!")
-    if "giizig" in message:
+        didSend = True
+    if "giizig" in message or "gizig" in message:
         bot.send_message(chat_id=update.message.chat_id, text="und wie!")
+        didSend = True
     if "livigno" in message:
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
+        didSend = True
     if "gester" in message:
         bot.send_message(chat_id=update.message.chat_id, text="gester?! Da schaffed mer nie!!")
-    else: bot.send_message(chat_id=update.message.chat_id, text="I ha di ned verstande du Stinkdachs")
+        didSend = True
 
+    if not didSend:
+        bot.send_message(chat_id=update.message.chat_id, text="I ha di ned verstande du Stinkdachs")
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
 updater.start_polling()
